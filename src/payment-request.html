@@ -1,0 +1,83 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../iron-icon/iron-icon.html">
+<link rel="import" href="../../iron-icons/iron-icons.html">
+<link rel="import" href="../../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../paper-button/paper-button.html">
+<link rel="import" href="../../paper-styles/paper-styles.html">
+<link rel="import" href="./payment-request-dialog.html">
+
+<!--
+`payment-request`
+Polyfill for paymentRequest api
+
+@demo demo/index.html 
+-->
+
+<dom-module id="payment-request">
+  <template>
+    <style>
+      :host {
+        display: block;
+        @apply(--paper-font-body1);
+      }
+
+      payment-request-dialog > *:last-child {
+        margin-bottom: 0;
+      }
+      payment-request-dialog > *:first-child {
+        margin-top: 0;
+      }
+      payment-request-dialog > * {
+        margin-top: 0;
+        padding: 0;
+      }
+
+      .header {
+        @apply(--layout-horizontal);
+        padding-left: 16px !important;
+      }
+
+      .header > div {
+        @apply(--layout-vertical);
+        @apply(--layout-center-justified);
+      }
+
+      .header-content {
+        @apply(--layout-flex);
+        padding: 12px 16px ;
+      }
+
+      .close-button {
+        position: relative;
+        color: var(--paper-grey-600);
+        cursor: pointer;
+        padding: 0 24px;
+      }
+
+      .header-title {
+        @apply(--paper-font-title);
+      }
+
+      .header-subtitle {
+        color: var(--paper-grey-500);
+      }
+    </style>
+    <payment-request-dialog opened modal>
+      <div class="header">
+        <div class="header-icon">
+          <iron-icon icon="shopping-cart"></iron-icon>
+        </div>
+        <div class="header-content">
+          <div class="header-title">[[title]]</div>
+          <div class="header-subtitle">[[subtitle]]</div>
+        </div>
+        <div class="close-button">
+          <paper-ripple></paper-ripple>
+          <iron-icon icon="close"></iron-icon>
+        </div>
+      </div>
+    </payment-request-dialog>
+  </template>
+
+  <script src="payment-request.js"></script>
+</dom-module>
